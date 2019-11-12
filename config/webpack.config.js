@@ -1,4 +1,4 @@
-'use strict';
+
 
 const fs = require('fs');
 const isWsl = require('is-wsl');
@@ -501,7 +501,7 @@ module.exports = function(webpackEnv) {
               loaders: [
                 require.resolve('style-loader'),
                 require.resolve('css-loader'),
-                require.resolve('scss-loader')
+                require.resolve('sass-loader')
               ]
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
@@ -515,7 +515,7 @@ module.exports = function(webpackEnv) {
               // its runtime that would otherwise be processed through "file" loader.
               // Also exclude `html` and `json` extensions so they get processed
               // by webpacks internal loaders.
-              exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+              exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/, /\.scss$/],
               options: {
                 name: 'static/media/[name].[hash:8].[ext]',
               },
