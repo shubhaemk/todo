@@ -13,6 +13,11 @@ class App extends Component{
     this.state = model;
   }
 
+  componentDidUpdate = () => {
+    console.log(this.state.tdTitle);
+    console.log(this.state.tdValue);
+  }
+
   addPrompt = () =>{
     this.setState({
       addPrompt : !this.state.addPrompt
@@ -28,27 +33,42 @@ class App extends Component{
       tdValue : {...tempTdValue}
     },
     this.setState({
-      addPrompt: !this.state.addPrompt
+      addPrompt : !this.state.addPrompt
     }))
+  }
 
+  doneToDo = (title) => {
+    let tempTdTitle = {...this.state.tdTitle};
+    let tempTdValue = {...this.state.tdValue};
+    
+    delete tempTdValue[tempTdTitle[title]];
+    delete tempTdTitle[title];
+
+    this.setState({
+      tdTitle : tempTdTitle,
+      tdValue : tempTdValue
+    });
   }
 
   render(){
     return(
       <div className="App">
-        <button onClick={this.addPrompt}>
+        <button onClick={()=>this.addPrompt()}>
           {this.state.addPrompt ? 'Cancel' : 'Add'}
         </button>
         {
           this.state.addPrompt ? <Add addToDo = {this.addToDo}></Add> : ''
         }
         {
-          Object.keys(this.state.tdTitle).map((title) => {
-            let key = this.state.tdTitle[title];
-            return (
-              <ToDo key = {key} title = {title} value = {this.state.tdValue[key]}></ToDo>
-            )
-          })
+          Object.keys(this.state.tdTitle).length ? (
+            Object.keys(this.state.tdTitle).map((title) => {
+              let key = this.state.tdTitle[title];
+              return (
+                <ToDo doneToDo={this.doneToDo} key={key} title={title} value={this.state.tdValue[key]}></ToDo>
+              )
+            })
+          ) :
+          'List is empty!'
         }
       </div>
     )
