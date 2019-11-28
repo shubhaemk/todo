@@ -1,0 +1,54 @@
+.todo{
+    background-color: $primary_color;
+    display: flex;
+    height: 100vh;
+    margin: auto;
+    padding: 2rem;
+    width: 70vw;
+
+    &__list{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__menu{
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        margin-top: auto;
+        width: 30%;
+
+        &_prompt{
+            margin: 1rem 0;
+        }
+
+        &_button{
+            margin-left: auto;
+        }
+    }
+}
+
+.add{
+    display: flex;
+    flex-direction: column;
+
+    &__input{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    &__button{
+        margin-left: auto;
+    }
+}
+
+
+.list{
+    height: 100%;
+    margin : 1.5rem 0;
+    overflow-y: scroll;
+    width: 100%;
+}
+

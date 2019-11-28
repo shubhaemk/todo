@@ -1,0 +1,118 @@
+.button{
+    outline: none;
+    
+    &__add{
+        background-color: $secondary_color;
+        border: $secondary_color;
+        border-radius: 50%;
+        box-shadow: .2rem .2rem .4rem rgba(#000,.5);
+        color: $primary_text_color;
+        font-size: 1rem;
+        font-weight: 400;
+        height: 4rem;
+        cursor: pointer;
+        width: 4rem;
+        transition: all .3s;
+
+        &:active{
+            box-shadow: .3rem .3rem .4rem rgba(#000,.5);
+            transform: scale(1) translateY(.2rem);
+        }
+    }
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child){
+        margin-bottom: 1rem;
+    }
+
+    &__title{
+        color: $primary_text_color;
+        font-size: 1rem;
+        font-weight: 400;
+        margin: .5rem .2rem;
+    }
+
+    &__add{
+        background-color : $primary_text_color;
+        border-radius: .5rem;
+        color: $tertiary_color;
+        height: 2rem;
+        outline: none;
+    }
+}
+
+.title{
+    display: flex;
+    border-bottom-style: solid;
+    border-color: $tertiary_color;
+    border-width : .2rem;
+    height: 30%;
+    width: 100%;
+    color: $primary_text_color;
+
+    &__name{
+        font-size: 6rem;
+    }
+
+    &__info{
+        color: inherit;
+        font-size: 2rem;
+        margin: auto 0;
+        margin-left: 2rem;
+        text-decoration: none;
+
+        &:hover{
+            color: $secondary_color;
+        }
+    }
+}
+
+.toDo{
+    background-color: $tertiary_color;
+    color: $primary_text_color;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 2rem;
+    padding: 2rem 1rem;
+
+    &:not(:last-child){
+        margin-bottom: 1rem;
+    }
+
+    &__info{
+        display: flex;
+        flex-direction: column;
+
+        &-title{
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        &-desc{
+            font-size: 1rem;
+            font-weight: 300; 
+        }
+    }
+
+    &__menu{
+        
+    }
+}
+
+.empty{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    &__text{
+        font-size: 3.5rem;
+        font-weight: 300;
+        color: $primary_text_color;
+    }
+}
